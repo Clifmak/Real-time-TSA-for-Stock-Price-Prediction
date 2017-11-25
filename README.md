@@ -2,7 +2,8 @@
 
 Real-time Twitter Sentiment Analysis for Stock Price Prediction
 
-Overview of Problem
+
+1. Overview of Problem
 
 Our goal is to create a system for real-time analysis of Twitter public sentiment towards a basket of stocks making up the NASDAQ-1001 and predict future stock prices.  Twitter is an online news and social networking service where users post and interact with messages called “tweets”. It has become a central site were influential people and the general public express their opinions on a range of topics from politics to finance. Current events and breaking news are often closely followed by an increase in tweet volume. When prominent business people express their opinions on a stock or a company, they can generate public conversation; this often influences public opinion and can drive stock prices up or down. This presents a unique opportunity to gauge the relationship between public sentiment and stock price movement. 
 

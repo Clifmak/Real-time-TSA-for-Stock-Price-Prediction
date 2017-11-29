@@ -167,13 +167,13 @@ class Tokenizer:
 if __name__ == '__main__':
     tok = Tokenizer(preserve_case=False)
     samples = (
-        u"RT @ #happyfuncoding: this is a typical Twitter tweet :-)",
+        u"2017-11-27 12:19:38 Wall Street Breakfast: Bitcoin Shoots For $10,000 #bitcoin #news #SPY #QQQ #AMZN #EADSY #GE #JBAXY #MDP #NVDA #TIME https://t.co/zayubHza4",
         u"HTML entities &amp; other Web oddities can be an &aacute;cute <em class='grumpy'>pain</em> >:(",
         u"It's perhaps noteworthy that phone numbers like +1 (800) 123-4567, (800) 123-4567, and 123-4567 are treated as words despite their whitespace."
         )
 
     for s in samples:
         print("======================================================================")
-        print(s)
+        print(s) t
         tokenized = tok.tokenize(s)
         print("\n".join(tokenized))

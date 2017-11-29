@@ -174,6 +174,6 @@ if __name__ == '__main__':
 
     for s in samples:
         print("======================================================================")
-        print(s) t
+        print(s)
         tokenized = tok.tokenize(s)
         print("\n".join(tokenized))

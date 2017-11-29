@@ -103,10 +103,10 @@ class Tokenizer:
         """        
         # Try to ensure unicode:
         try:
-            s = unicode(s)
+            s = str(s)
         except UnicodeDecodeError:
             s = str(s).encode('string_escape')
-            s = unicode(s)
+            s = str(s)
         # Fix HTML character entitites:
         s = self.__html2unicode(s)
         # Tokenize:

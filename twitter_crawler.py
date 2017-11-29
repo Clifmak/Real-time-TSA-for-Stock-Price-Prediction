@@ -4,10 +4,10 @@ import csv
 import pandas as pd
 
 #twitter API credentials
-consumer_key = ''
-consumer_secret = ''
-access_token = ''
-access_token_secret = ''
+consumer_key = 'uZzYLJklo7eFh1JAVl3wfMxCS'
+consumer_secret = 'I0KKzVNhZGB7cTKgSVIPdHgLbAZbwyugs6GGNmEH4t5RaWHSQL'
+access_token = '3298766293-8G3JGTU3gzKMSnDh6BNwWkem5gzK9JnBwIzRrpj'
+access_token_secret = 'jQZju6981NvUr9DCquPh8ReSvzjlYPLm0QFMwKbff7zfa'
 
 #authorize twitter and initialize tweppy
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)

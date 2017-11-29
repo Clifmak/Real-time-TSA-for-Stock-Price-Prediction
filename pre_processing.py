@@ -2,7 +2,7 @@
 ######################################################################
 
 import re
-import htmlentities
+import html.entities
 
 ######################################################################
 # The following strings are components in the regular expression

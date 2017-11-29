@@ -18,8 +18,33 @@ api = tweepy.API(auth,wait_on_rate_limit=True)
 csvFile = open('ua.csv', 'a')
 csvWriter = csv.writer(csvFile)
 
+'''
 for tweet in tweepy.Cursor(api.search,q="#NVDA",count=10,
                            lang="en",
                            since="2016-11-28").items():
     print (tweet.created_at, tweet.text)
     csvWriter.writerow([tweet.created_at, tweet.text.encode('utf-8')])
+'''
+
+for company in ["AMZN", "APPL", "MSFT", "TSLA"]:
+    neg_score = 0
+    pos_score = 0
+    for tweet in tweepy.Cursor(api.search,q="#"+company,
+                           lang="en",
+                           since="2017-11-28").items(500):
+        blob = textblob.TextBlob(tweet.text, analyzer=textblob.sentiments.NaiveBayesAnalyzer())
+        neg_score += blob.sentiment.p_neg
+        pos_score += blob.sentiment.p_pos
+        csvWriter.writerow([tweet.created_at, tweet.text.encode('utf-8')])
+    neg_avg = neg_score/500
+    pos_avg = pos_score/500
+    if (neg_avg > pos_avg):
+        sent = "negative"
+        diff = neg_avg-pos_avg
+    elif (pos_avg > neg_avg):
+        sent = "positive"
+        diff = pos_avg-neg_avg
+    else:
+        sent = "neutral"
+        diff = 0
+    print (company, sent, diff)

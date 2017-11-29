@@ -3,7 +3,7 @@
 
 import re
 import html.entities
-import six
+
 
 ######################################################################
 # The following strings are components in the regular expression

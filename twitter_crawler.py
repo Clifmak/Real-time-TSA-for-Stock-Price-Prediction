@@ -18,8 +18,8 @@ api = tweepy.API(auth,wait_on_rate_limit=True)
 csvFile = open('ua.csv', 'a')
 csvWriter = csv.writer(csvFile)
 
-for tweet in tweepy.Cursor(api.search,q=" AMAZON ",count=10,
+for tweet in tweepy.Cursor(api.search,q="#WilliamsCollege ",count=10,
                            lang="en",
-                           since="2017-11-28").items():
+                           since="2016-11-28").items():
     print (tweet.created_at, tweet.text)
     csvWriter.writerow([tweet.created_at, tweet.text.encode('utf-8')])

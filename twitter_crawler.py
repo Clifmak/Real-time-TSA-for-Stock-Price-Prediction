@@ -2,6 +2,7 @@
 import tweepy #https://github.com/tweepy/tweepy
 import csv
 import pandas as pd
+import textblob
 # https://textblob.readthedocs.io/en/dev/advanced_usage.html#sentiment-analyzers
 #twitter API credentials
 consumer_key = 'uZzYLJklo7eFh1JAVl3wfMxCS'

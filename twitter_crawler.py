@@ -31,13 +31,13 @@ for company in ["AMZN", "APPL", "MSFT", "TSLA"]:
     pos_score = 0
     for tweet in tweepy.Cursor(api.search,q="#"+company,
                            lang="en",
-                           since="2017-11-28").items(500):
+                           since="2017-11-28").items(50):
         blob = textblob.TextBlob(tweet.text, analyzer=textblob.sentiments.NaiveBayesAnalyzer())
         neg_score += blob.sentiment.p_neg
         pos_score += blob.sentiment.p_pos
         csvWriter.writerow([tweet.created_at, tweet.text.encode('utf-8')])
-    neg_avg = neg_score/500
-    pos_avg = pos_score/500
+    neg_avg = neg_score/50
+    pos_avg = pos_score/50
     if (neg_avg > pos_avg):
         sent = "negative"
         diff = neg_avg-pos_avg

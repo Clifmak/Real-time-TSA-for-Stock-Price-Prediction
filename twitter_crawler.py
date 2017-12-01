@@ -27,7 +27,7 @@ for tweet in tweepy.Cursor(api.search,q="#NVDA",count=10,
     csvWriter.writerow([tweet.created_at, tweet.text.encode('utf-8')])
 '''
 
-for company in ["AMZN", "APPL", "MSFT", "TSLA"]:
+for company in ["#AMZN", "#APPL", "#MSFT", "#TSLA"]:
     neg_score = 0
     pos_score = 0
     for tweet in tweepy.Cursor(api.search,q="#"+company,

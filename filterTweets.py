@@ -58,6 +58,7 @@ featureList =[]
 tweets = []
 for row in tweetFrame :
     tweet = row[3]
+    sentiment = row[1]
     processedTweet = preProcessing(tweet)
     featureVector = getFeatureVector(processedTweet)
     featureList.extend(featureVector)

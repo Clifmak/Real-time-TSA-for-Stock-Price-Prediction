@@ -49,8 +49,8 @@ print(featureVector)
 tweetFrame = csv.reader('Sentiment Analysis Dataset.csv')
 tweets = []
 for row in tweetFrame :
-  sentiment = row[0]
-  tweet = row[1]
+  sentiment = row[1]
+  tweet = row[3]
   processedTweet = preProcessing(tweet)
   featureVector = getFeatureVector(processedTweets)
   tweets.append(featureVector, sentiment)

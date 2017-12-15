@@ -1,4 +1,5 @@
 from nltk.corpus import stopwords
+import textblob
 
 import re
 #Process tweet for uniformity in sentiment analysis
@@ -42,7 +43,7 @@ tweet = preProcessing(tweet)
 featureVector = getFeatureVector(tweet)
 print(featureVector + "\n")
 blob = textblob.TextBlob(tweet.text, analyzer=textblob.sentiments.NaiveBayesAnalyzer())
-print(
+print(blob.sentiment.p_pos)
 
 
 

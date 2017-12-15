@@ -1,6 +1,7 @@
 from nltk.corpus import stopwords
 import textblob
 import csv
+import nltk
 
 import re
 #Process tweet for uniformity in sentiment analysis

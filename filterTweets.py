@@ -41,7 +41,7 @@ tweet = "@JimChanos What Elon did was simple: He made EVs sexy.Prior to that you
 print(tweet + "\n" )
 tweet = preProcessing(tweet)
 featureVector = getFeatureVector(tweet)
-print(featureVector + "\n")
+print(featureVector)
 blob = textblob.TextBlob(tweet.text, analyzer=textblob.sentiments.NaiveBayesAnalyzer())
 print(blob.sentiment.p_pos)
 

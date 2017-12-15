@@ -72,7 +72,7 @@ classifier = nltk.NaiveBayesClassifier.train(training_set)
 
 initialTweet = "Bitcoin is going to make me filthy rich. I am so happy"
 processedTweet = preProcessing(initialTweet)
-print(classify(extract_features(getFeatureVector(finalTweet)))
+print(classify(extract_features(getFeatureVector(processedTweet)))
 
 
 

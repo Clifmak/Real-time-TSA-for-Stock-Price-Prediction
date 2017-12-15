@@ -27,7 +27,7 @@ def getFeatureVector(tweet):
   featureVector = []
   sentence = tweet.split()
   for word in sentence:
-    word = replacerepetition(word)
+    word = replaceRepetition(word)
     word = word.strip('\'"?,.')
     if(word in getStopWords() or val is None):
       continue

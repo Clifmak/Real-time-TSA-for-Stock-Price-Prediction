@@ -26,19 +26,19 @@ for tweet in tweepy.Cursor(api.search,q="#NVDA",count=10,
     print (tweet.created_at, tweet.text)
     csvWriter.writerow([tweet.created_at, tweet.text.encode('utf-8')])
 '''
-targetList = ["WSJ", "nytimes", "business", "CNBC"]
+
 companyList = ["#ADP", "#ADBE", "#MSFT", "#TSLA"]
 for company in companyList :
-    for name in targetList :
-        neg_score = 0
-        pos_score = 0
-        for tweet in tweepy.Cursor(api.search,q="#"+company, sceen_name = name,
+    
+    neg_score = 0
+    pos_score = 0
+    for tweet in tweepy.Cursor(api.search,q="#"+company, sceen_name = name,
                                lang="en",
                                since="2017-11-28").items(10):
             blob = textblob.TextBlob(tweet.text, analyzer=textblob.sentiments.NaiveBayesAnalyzer())
-            neg_score += blob.sentiment.p_neg
-            pos_score += blob.sentiment.p_pos
-            csvWriter.writerow([tweet.created_at, tweet.text.encode('utf-8')])
+        neg_score += blob.sentiment.p_neg
+        pos_score += blob.sentiment.p_pos
+        csvWriter.writerow([tweet.created_at, tweet.text.encode('utf-8')])
         neg_avg = neg_score/10
         pos_avg = pos_score/10
         if (neg_avg > pos_avg):

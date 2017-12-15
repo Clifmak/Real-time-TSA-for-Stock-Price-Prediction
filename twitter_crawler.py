@@ -39,16 +39,16 @@ for company in companyList :
         neg_score += blob.sentiment.p_neg
         pos_score += blob.sentiment.p_pos
         csvWriter.writerow([tweet.created_at, tweet.text.encode('utf-8')])
-        neg_avg = neg_score/10
-        pos_avg = pos_score/10
-        if (neg_avg > pos_avg):
-            sent = "negative"
-            diff = neg_avg-pos_avg
-        elif (pos_avg > neg_avg):
-            sent = "positive"
-            diff = pos_avg-neg_avg
-        else:
-            sent = "neutral"
-            diff = 0
-        print (company, sent, diff)
-        csvWriter.writerow([tweet.created_at, tweet.text.encode('utf-8')])
+    neg_avg = neg_score/10
+    pos_avg = pos_score/10
+    if (neg_avg > pos_avg):
+        sent = "negative"
+        diff = neg_avg-pos_avg
+    elif (pos_avg > neg_avg):
+        sent = "positive"
+        diff = pos_avg-neg_avg
+    else:
+        sent = "neutral"
+        diff = 0
+    print (company, sent, diff)
+    #csvWriter.writerow([tweet.created_at, tweet.text.encode('utf-8')])

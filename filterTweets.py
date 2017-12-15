@@ -40,6 +40,8 @@ tweet = "@JimChanos What Elon did was simple: He made EVs sexy.Prior to that you
 tweet = preProcessing(tweet)
 featureVector = getFeatureVector(tweet)
 print(featureVector)
+
+
   
 
 

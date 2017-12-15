@@ -46,7 +46,7 @@ print(featureVector)
 
 
 #Adapted from NLTK Twitter Data Sentiment Analysis
-tweetFrame = csv.reader(open('Sentiment Analysis Dataset.csv', 'rb'), delimiter=',')
+tweetFrame = csv.reader(open('Sentiment Analysis Dataset.csv', 'r'), delimiter=',')
 tweets = []
 for row in tweetFrame :
   sentiment = row[1]

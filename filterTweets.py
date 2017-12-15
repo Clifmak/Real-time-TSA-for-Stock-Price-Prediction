@@ -29,6 +29,7 @@ def getFeatureVector(tweet):
   for word in sentence:
     word = replaceRepetition(word)
     word = word.strip('\'"?,.')
+    val = re.search(r"^[a-zA-Z][a-zA-Z0-9]*$", w)
     if(word in getStopWords() or val is None):
       continue
     else:

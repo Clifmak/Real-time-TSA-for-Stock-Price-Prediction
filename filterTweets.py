@@ -15,30 +15,27 @@ def preProcessing(tweet):
   tweet = tweet.strip('\'"')                                      #remove white space on both sides
   return tweet
 
-
-def replaceRepetition(s):
-  pattern = re.compile(r"(.)\1{1,}", re.DOTALL)
-  return pattern.sub(r"\1\1", s)
-
+#Get NLTK stop words
 def getStopWords():
-  stopWords = set(stopwords.words('english'))
-  stopWords.add('SOURCE')
-  stopWords.add('URL')
+  stopWords = set(stopwords.words('english'))                     #English Stopwords
+  stopWords.add('SOURCE')                                         #Add source 
+  stopWords.add('URL')                                            #Add url
   return stopWords
 
+#Get Feature Vector
 def getFeatureVector(tweet):
   featureVector = []
-  sentence = tweet.split()
+  sentence = tweet.split()                                          #tokenize
   for word in sentence:
-    word = replaceRepetition(word)
-    word = word.strip('\'"?,.')
-    val = re.search(r"^[a-zA-Z][a-zA-Z0-9]*$", word)
+    word = word.strip('\'"?,.')                                     #Remove special characters
+    val = re.search(r"^[a-zA-Z][a-zA-Z0-9]*$", word)                #Search alphanumeric characters
     if(word in getStopWords() or val is None):
       continue
     else:
       featureVector.append(word.lower())
   return featureVector
 
+#Extract Features
 def extract_features(tweet):
     tweet_words = set(tweet)
     features = {}
@@ -54,7 +51,7 @@ print(featureVector)
 
 
 #Adapted from NLTK Twitter Data Sentiment Analysis
-tweetFrame = csv.reader(open('trainData.csv', 'r'), delimiter=',')
+tweetFrame = csv.reader(open('data1.csv', 'r'), delimiter=',')
 featureList =[]
 tweets = []
 for row in tweetFrame :

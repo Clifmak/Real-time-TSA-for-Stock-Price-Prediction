@@ -52,7 +52,7 @@ for row in tweetFrame :
   sentiment = row[1]
   tweet = row[3]
   processedTweet = preProcessing(tweet)
-  featureVector = getFeatureVector(processedTweets)
+  featureVector = getFeatureVector(processedTweet)
   tweets.append(featureVector, sentiment)
 prints(tweets)
   

@@ -54,7 +54,7 @@ for row in tweetFrame :
   processedTweet = preProcessing(tweet)
   featureVector = getFeatureVector(processedTweet)
   tweets.append((featureVector, sentiment))
-prints(tweets)
+  prints(tweets)
   
   
 

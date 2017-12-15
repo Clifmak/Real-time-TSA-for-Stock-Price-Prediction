@@ -10,6 +10,5 @@ def preProcessing(tweet):
     tweet = re.sub(r'#([^\s]+)', r'\1', tweet)                      #remove '#'sign from word
     tweet = tweet.strip('\'"')                                      #remove white space on both sides
     return tweet
-
 tweetSample = "@WSJ #Herbalife is Bill Ackman's greatest short. Will he win ?"
-print preProcessing(tweetSample)
+print(preProcessing(tweetSample))

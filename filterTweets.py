@@ -19,8 +19,8 @@ def replaceRepetition(s):
 
 def getStopWords():
   stopWords = set(stopwords.words('english'))
-  stopWords.append('SOURCE')
-  stopWords.append('URL')
+  stopWords.add('SOURCE')
+  stopWords.add('URL')
   return stopWords
 
 def getFeatureVector(tweet):

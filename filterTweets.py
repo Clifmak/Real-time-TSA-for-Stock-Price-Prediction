@@ -42,8 +42,7 @@ print(tweet + "\n" )
 tweet = preProcessing(tweet)
 featureVector = getFeatureVector(tweet)
 print(featureVector)
-blob = textblob.TextBlob(tweet, analyzer=textblob.sentiments.NaiveBayesAnalyzer())
-print(blob.sentiment.p_pos)
+
 
 
 

@@ -32,7 +32,7 @@ for company in companyList :
   
     neg_score = 0
     pos_score = 0
-    for tweet in tweepy.Cursor(api.search,q="#"+company, sceen_name = name,
+    for tweet in tweepy.Cursor(api.search,q="#"+company,
                                lang="en",
                                since="2017-11-28").items(10):
         blob = textblob.TextBlob(tweet.text, analyzer=textblob.sentiments.NaiveBayesAnalyzer())

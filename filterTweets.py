@@ -58,7 +58,7 @@ for row in tweetFrame :
   featureList.extend(featureVector)
   tweets.append((featureVector, sentiment))
 featureList = list(set(featureList))
-training_set = nltk.classify.util.apply_features(featureList, tweets)
+training_set = nltk.classify.util.apply_features(extract_features, tweets)
 print(training_set)
   
 

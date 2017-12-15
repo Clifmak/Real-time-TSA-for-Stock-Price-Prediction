@@ -66,9 +66,13 @@ for row in tweetFrame :
   tweets.append((featureVector, sentiment))
 featureList = list(set(featureList))
 training_set = nltk.classify.util.apply_features(extract_features, tweets)
-print(training_set)
-  
 
+classifier = nltk.NaiveBayesClassifier.train(training_set)
+
+
+initialTweet = "Bitcoin is going to make me filthy rich. I am so happy"
+processedTweet = preProcessing(initialTweet)
+print(classify(extract_features(getFeatureVector(finalTweet)))
 
 
 

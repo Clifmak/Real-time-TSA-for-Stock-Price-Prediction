@@ -47,15 +47,18 @@ print(featureVector)
 
 #Adapted from NLTK Twitter Data Sentiment Analysis
 tweetFrame = csv.reader(open('data1.csv', 'r'), delimiter=',')
+featureList =[]
 tweets = []
 for row in tweetFrame :
   sentiment = row[1]
   tweet = row[3]
   processedTweet = preProcessing(tweet)
   featureVector = getFeatureVector(processedTweet)
+  featureList.extend(featureVector)
   tweets.append((featureVector, sentiment))
-  print(tweets)
-  
+featureList = list(set(featureList))
+training_set = nltk.classify.util.apply_features(extract_features, tweets)
+print(training_set)
   
 
 

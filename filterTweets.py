@@ -1,5 +1,17 @@
 from nltk.corpus import stopwords
 
+import re
+#Process tweet for uniformity in sentiment analysis
+#Method adapted from Christopher Potts Sentiment tokenizer
+def preProcessing(tweet):
+  tweet = tweet.lower()                                           #to lower case
+  tweet = re.sub('((www\.[^\s]+)|(https?://[^\s]+))','URL',tweet) #convert link to URL
+  tweet = re.sub('@[^\s]+','SOURCE',tweet)                        #change username to SOURCE                         
+  tweet = re.sub('[\s]+', ' ', tweet)                             #remove extra white space
+  tweet = re.sub(r'#([^\s]+)', r'\1', tweet)                      #remove '#'sign from word
+  tweet = tweet.strip('\'"')                                      #remove white space on both sides
+  return tweet
+
 
 def replaceRepetition(s):
   pattern = re.compile(r"(.)\1{1,}", re.DOTALL)
@@ -11,7 +23,7 @@ def getStopWords():
   stopWords.append('URL')
   return stopWords
 
-def featureVector(tweet):
+def getFeatureVector(tweet):
   featureVector = []
   sentence = tweet.split()
   for word in sentence:
@@ -23,8 +35,10 @@ def featureVector(tweet):
       featureVector.append(word.lower())
   return featureVector
 
-tweet = "What Elon did was simple: He made EVs sexy.Prior to that you had to compromise and get something like a Prius. But now he has the entire auto world that has figured that out and is coming up with aspirational cars. He’s fighting a different fight."
-      
+tweet = "@JimChanos What Elon did was simple: He made EVs sexy.Prior to that you had to compromise and get something like a Prius. But now he has the entire auto world that has figured that out and is coming up with aspirational cars. He’s fighting a different fight."
+tweet = preProcessing(tweet)
+featureVector = getFeatureVector(tweet)
+print(featureVector)
   
 
 

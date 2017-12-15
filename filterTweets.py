@@ -1,5 +1,6 @@
 from nltk.corpus import stopwords
 import textblob
+import csv
 
 import re
 #Process tweet for uniformity in sentiment analysis
@@ -37,11 +38,25 @@ def getFeatureVector(tweet):
       featureVector.append(word.lower())
   return featureVector
 
-tweet = "@JimChanos What Elon did was simple: He made EVs sexy.Prior to that you had to compromise and get something like a Prius. But now he has the entire auto world that has figured that out and is coming up with aspirational cars. He’s fighting a different fight."
+tweet = "@JimChanos What Elon Musk did was simple: He made EVs sexy.Prior to that you had to compromise and get something like a Prius. But now he has the entire auto world that has figured that out and is coming up with aspirational cars. He’s fighting a different fight."
 print(tweet + "\n" )
 tweet = preProcessing(tweet)
 featureVector = getFeatureVector(tweet)
 print(featureVector)
+
+
+#Adapted from NLTK Twitter Data Sentiment Analysis
+tweetFrame = csv.reader('Sentiment Analysis Dataset.csv', 'rb')
+tweets = []
+for row in tweetFrame :
+  sentiment = row[0]
+  tweet = row[1]
+  processedTweet = preProcessing(tweet)
+  featureVector = getFeatureVector(processedTweets)
+  tweets.append(featureVector, sentiment)
+prints(tweets)
+  
+  
 
 
 

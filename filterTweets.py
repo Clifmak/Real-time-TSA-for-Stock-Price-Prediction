@@ -2,6 +2,7 @@ from nltk.corpus import stopwords
 import textblob
 import csv
 import nltk
+import pandas as pd
 
 import re
 #Process tweet for uniformity in sentiment analysis
@@ -52,24 +53,24 @@ print(featureVector)
 
 #Adapted from NLTK Twitter Data Sentiment Analysis
 tweetFrame = csv.reader(open('data4.csv', 'r'), delimiter=',')
-featureList =[]
-tweets = []
-for row in tweetFrame :
-  sentiment = row[1]
-  tweet = row[3]
-  processedTweet = preProcessing(tweet)
-  featureVector = getFeatureVector(processedTweet)
-  featureList.extend(featureVector)
-  tweets.append((featureVector, sentiment))
-featureList = list(set(featureList))
-training_set = nltk.classify.util.apply_features(extract_features, tweets)
+print(tweetFrame)
+#featureList =[]
+#tweets = []
+#for row in tweetFrame :
+# tweet = row[3]
+#  processedTweet = preProcessing(tweet)
+#  featureVector = getFeatureVector(processedTweet)
+#  featureList.extend(featureVector)
+#  tweets.append((featureVector, sentiment))
+#featureList = list(set(featureList))
+#training_set = nltk.classify.util.apply_features(extract_features, tweets)
 
-classifier = nltk.NaiveBayesClassifier.train(training_set)
+#classifier = nltk.NaiveBayesClassifier.train(training_set)
 
 
-initialTweet = "Bitcoin is going to make me filthy rich. I am so happy"
-processedTweet = preProcessing(initialTweet)
-print(classifier.classify(extract_features(getFeatureVector(processedTweet))))
+#initialTweet = "Bitcoin is going to make me filthy rich. I am so happy"
+#processedTweet = preProcessing(initialTweet)
+#print(classifier.classify(extract_features(getFeatureVector(processedTweet))))
 
 
 

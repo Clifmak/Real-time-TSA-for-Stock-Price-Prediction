@@ -37,10 +37,12 @@ def getFeatureVector(tweet):
   return featureVector
 
 tweet = "@JimChanos What Elon did was simple: He made EVs sexy.Prior to that you had to compromise and get something like a Prius. But now he has the entire auto world that has figured that out and is coming up with aspirational cars. He’s fighting a different fight."
+print(tweet + "\n" )
 tweet = preProcessing(tweet)
 featureVector = getFeatureVector(tweet)
-print(featureVector)
-
+print(featureVector + "\n")
+blob = textblob.TextBlob(tweet.text, analyzer=textblob.sentiments.NaiveBayesAnalyzer())
+print(
 
 
 

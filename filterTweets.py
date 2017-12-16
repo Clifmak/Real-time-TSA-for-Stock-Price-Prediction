@@ -106,8 +106,8 @@ if __name__ == '__main__':
     blob = textblob.TextBlob(initialTweet, analyzer=textblob.sentiments.NaiveBayesAnalyzer())
     print("Tweet:" + " " + initialTweet + "\n")
     print("Model Sentiment Value:" + " " + classifier.classify(extract_features(getFeatureVector(processedTweet))) + "\n")
-    print("TextBlob Positive Sentiment Value:" + " " + blob.sentiment.p_pos + "\n")
-    print("TextBlob Negative Sentiment Value:" + " " + blob.sentiment.p_neg)
+    print("TextBlob Positive Sentiment Value:" + " " + str(blob.sentiment.p_pos + "\n"))
+    print("TextBlob Negative Sentiment Value:" + " " + str(blob.sentiment.p_neg))
 
 
 

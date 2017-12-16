@@ -1,0 +1,18 @@
+How to Compile and Run the Program : financial_sentiment
+
+The program relies on two inputs :
+     1. A data file titled 'data4' which is used to train a sentiment model.
+     2. A tweet from the user which is passed when running the program.
+ 
+ 'data4' needs to be in the same directory as the program.
+  To run the program with a tweet use th following command :
+          python financial_sentiment "<tweet text>"
+          
+  where <tweet text> is a tweet about any financial company.
+  
+  The program will return the tweet, a sentiment of our model, where 0 means negative sentiment and 1 means a postive sentiment, 
+                   sentiment from textBlob an off-the-shelf sentiment analysis model.
+  For the TextBlob Sentiment Analysis, the one with the higher sentiment represents the sentiment for the tweet.
+                  
+  
+                          

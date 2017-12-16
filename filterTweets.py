@@ -68,13 +68,18 @@ for row in tweetFrame :
     training_set = nltk.classify.util.apply_features(extract_features, tweets)
     #print(row[1] + " " + row[2] + "\n")
 classifier = nltk.NaiveBayesClassifier.train(training_set)
-print(classifier.labels())
+#print(classifier.labels())
     
 
 
 #initialTweet = "Bitcoin is going to make me filthy rich. I am so happy"
+
+
 initialTweet = "finally breaking up, bounced off those lows. Testing 20MA on daily and it closes above will be first time since selloff. Weekly 5MA near" 
 processedTweet = preProcessing(initialTweet)
+blob = textblob.TextBlob(tweet.text, analyzer=textblob.sentiments.NaiveBayesAnalyzer())
+print(
+
 print(classifier.classify(extract_features(getFeatureVector(processedTweet))))
 
 

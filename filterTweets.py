@@ -52,22 +52,22 @@ def extract_features(tweet):
 
 
 #Adapted from NLTK Twitter Data Sentiment Analysis
-tweetFrame = csv.reader(open('data4.csv', 'r'), quotechar='|', delimiter = '\t')
+#tweetFrame = csv.reader(open('data4.csv', 'r'), quotechar='|', delimiter = '\t')
 
-featureList =[]
-tweets = []
-i = 0
-for row in tweetFrame :
-    tweety = row[2]
-    sentiment = row[1]
-    processedTweet = preProcessing(tweety)
-    featureVector1 = getFeatureVector(processedTweet)
-    featureList.extend(featureVector1)
-    tweets.append((featureVector1, sentiment))
-    featureList = list(set(featureList))
-    training_set = nltk.classify.util.apply_features(extract_features, tweets)
+#featureList =[]
+#tweets = []
+#i = 0
+#for row in tweetFrame :
+#    tweety = row[2]
+#    sentiment = row[1]
+#    processedTweet = preProcessing(tweety)
+#    featureVector1 = getFeatureVector(processedTweet)
+#   featureList.extend(featureVector1)
+#    tweets.append((featureVector1, sentiment))
+#    featureList = list(set(featureList))
+#    training_set = nltk.classify.util.apply_features(extract_features, tweets)
     #print(row[1] + " " + row[2] + "\n")
-classifier = nltk.NaiveBayesClassifier.train(training_set)
+#classifier = nltk.NaiveBayesClassifier.train(training_set)
 #print(classifier.labels())
     
 
@@ -80,7 +80,7 @@ classifier = nltk.NaiveBayesClassifier.train(training_set)
 #blob = textblob.TextBlob(initialTweet, analyzer=textblob.sentiments.NaiveBayesAnalyzer())
 #print(blob.sentiment.p_pos, blob.sentiment.p_neg)
 
-print(classifier.classify(extract_features(getFeatureVector(processedTweet))))
+#print(classifier.classify(extract_features(getFeatureVector(processedTweet))))
 
 if __name__ == '__main__':
     tweetFrame = csv.reader(open('data4.csv', 'r'), quotechar='|', delimiter = '\t')

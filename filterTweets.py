@@ -68,6 +68,7 @@ for row in tweetFrame :
     training_set = nltk.classify.util.apply_features(extract_features, tweets)
     #print(row[1] + " " + row[2] + "\n")
 classifier = nltk.NaiveBayesClassifier.train(training_set)
+print(classifier.labels())
     
 
 

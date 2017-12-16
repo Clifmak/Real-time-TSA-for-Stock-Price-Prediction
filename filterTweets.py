@@ -100,13 +100,14 @@ if __name__ == '__main__':
         #print(row[1] + " " + row[2] + "\n")
     
     classifier = nltk.NaiveBayesClassifier.train(training_set)
-    initialTweet = "When analysts and pundits are saying I don't see $GE outperforming in 2018, It means the selling climax is almost over and the bottom is near. Consider accumulating at this level if you have a strong stomach to handle negativity in $GE."
+    #initialTweet = "When analysts and pundits are saying I don't see $GE outperforming in 2018, It means the selling climax is almost over and the bottom is near. Consider accumulating at this level if you have a strong stomach to handle negativity in $GE."
+    initialTweet = "$CSX so far smells like pure buyback action this morn; question is, when bb done, does it go off a cliff as sellers continue?"
     processedTweet = preProcessing(initialTweet)
     blob = textblob.TextBlob(initialTweet, analyzer=textblob.sentiments.NaiveBayesAnalyzer())
-    print(blob.sentiment.p_pos, blob.sentiment.p_neg)
-    print(classifier.classify(extract_features(getFeatureVector(processedTweet))))
-
-
+    print("Tweet:" + " " + initialTweet + "\n")
+    print("Model Sentiment Value" + " " + classifier.classify(extract_features(getFeatureVector(processedTweet))) + "\n")
+    print("TextBlob Sentiment Value" + (blob.sentiment.p_pos, blob.sentiment.p_neg))
+    
 
 
 

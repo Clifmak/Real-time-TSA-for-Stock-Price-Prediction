@@ -58,8 +58,6 @@ featureList =[]
 tweets = []
 i = 0
 for row in tweetFrame :
-    print(i)
-    print(row)
     tweety = row[1]
     sentiment = row[0]
     processedTweet = preProcessing(tweety)
@@ -70,7 +68,7 @@ for row in tweetFrame :
     training_set = nltk.classify.util.apply_features(extract_features, tweets)
     print(row[0] + " " + row[1] + "\n")
     classifier = nltk.NaiveBayesClassifier.train(training_set)
-    i += 1
+    
 
 
 initialTweet = "Bitcoin is going to make me filthy rich. I am so happy"

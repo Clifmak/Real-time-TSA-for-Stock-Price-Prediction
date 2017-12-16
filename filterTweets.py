@@ -77,7 +77,7 @@ classifier = nltk.NaiveBayesClassifier.train(training_set)
 
 initialTweet = "finally breaking up, bounced off those lows. Testing 20MA on daily and it closes above will be first time since selloff. Weekly 5MA near" 
 processedTweet = preProcessing(initialTweet)
-blob = textblob.TextBlob(tweet.text, analyzer=textblob.sentiments.NaiveBayesAnalyzer())
+blob = textblob.TextBlob(initialTweet, analyzer=textblob.sentiments.NaiveBayesAnalyzer())
 print(blob.sentiment.p_pos, blob.sentiment.p_neg)
 
 print(classifier.classify(extract_features(getFeatureVector(processedTweet))))

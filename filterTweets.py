@@ -75,13 +75,36 @@ classifier = nltk.NaiveBayesClassifier.train(training_set)
 #initialTweet = "Bitcoin is going to make me filthy rich. I am so happy"
 
 
-initialTweet = "When analysts and pundits are saying I don't see $GE outperforming in 2018, It means the selling climax is almost over and the bottom is near. Consider accumulating at this level if you have a strong stomach to handle negativity in $GE."
-processedTweet = preProcessing(initialTweet)
-blob = textblob.TextBlob(initialTweet, analyzer=textblob.sentiments.NaiveBayesAnalyzer())
-print(blob.sentiment.p_pos, blob.sentiment.p_neg)
+#initialTweet = "When analysts and pundits are saying I don't see $GE outperforming in 2018, It means the selling climax is almost over and the bottom is near. Consider accumulating at this level if you have a strong stomach to handle negativity in $GE."
+#processedTweet = preProcessing(initialTweet)
+#blob = textblob.TextBlob(initialTweet, analyzer=textblob.sentiments.NaiveBayesAnalyzer())
+#print(blob.sentiment.p_pos, blob.sentiment.p_neg)
 
 print(classifier.classify(extract_features(getFeatureVector(processedTweet))))
 
+if __name__ == '__main__':
+    tweetFrame = csv.reader(open('data4.csv', 'r'), quotechar='|', delimiter = '\t')
+
+    featureList =[]
+    tweets = []
+    i = 0
+    for row in tweetFrame :
+        tweety = row[2]
+        sentiment = row[1]
+        processedTweet = preProcessing(tweety)
+        featureVector1 = getFeatureVector(processedTweet)
+        featureList.extend(featureVector1)
+        tweets.append((featureVector1, sentiment))
+        featureList = list(set(featureList))
+        training_set = nltk.classify.util.apply_features(extract_features, tweets)
+        #print(row[1] + " " + row[2] + "\n")
+    
+    classifier = nltk.NaiveBayesClassifier.train(training_set)
+    initialTweet = "When analysts and pundits are saying I don't see $GE outperforming in 2018, It means the selling climax is almost over and the bottom is near. Consider accumulating at this level if you have a strong stomach to handle negativity in $GE."
+    processedTweet = preProcessing(initialTweet)
+    blob = textblob.TextBlob(initialTweet, analyzer=textblob.sentiments.NaiveBayesAnalyzer())
+    print(blob.sentiment.p_pos, blob.sentiment.p_neg)
+    print(classifier.classify(extract_features(getFeatureVector(processedTweet))))
 
 
 

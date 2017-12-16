@@ -103,8 +103,8 @@ if __name__ == '__main__':
         
     
     classifier = nltk.NaiveBayesClassifier.train(training_set)  #Train classifier
-    print(sys.argv)
-    initialTweet = str(sys.argv[2])      
+    #print(sys.argv)
+    initialTweet = str(sys.argv[1])      
     processedTweet = preProcessing(initialTweet)
     blob = textblob.TextBlob(initialTweet, analyzer=textblob.sentiments.NaiveBayesAnalyzer())
     print("Tweet:" + " " + initialTweet + "\n")

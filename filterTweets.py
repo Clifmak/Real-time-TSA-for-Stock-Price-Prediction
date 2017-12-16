@@ -59,6 +59,7 @@ tweets = []
 i = 0
 for row in tweetFrame :
     print(i)
+    print(row)
     tweety = row[1]
     sentiment = row[0]
     processedTweet = preProcessing(tweety)

@@ -102,21 +102,13 @@ if __name__ == '__main__':
         
     
     classifier = nltk.NaiveBayesClassifier.train(training_set)  #Train classifier
-    
-    initialTweet1 = "When analysts and pundits are saying I don't see $GE outperforming in 2018, It means the selling climax is almost over and the bottom is near. Consider accumulating at this level if you have a strong stomach to handle negativity in $GE."
-    initialTweet2 = "$CSX so far smells like pure buyback action this morn; question is, when bb done, does it go off a cliff as sellers continue?"
-    initialTwees3 = "$XON #Intrexon Corp INTREXON CORP. sees an upgrade to Slightly Negative thanks to a better star rating, but the title remains unattractive"
-    
-    tweetList = [intialTweet1, initialTweet2, intialTweet3]
-    
-    for initialTweet in TweetList:
-    
-        processedTweet = preProcessing(initialTweet)
-        blob = textblob.TextBlob(initialTweet, analyzer=textblob.sentiments.NaiveBayesAnalyzer())
-        print("Tweet:" + " " + initialTweet + "\n")
-        print("Model Sentiment Value:" + " " + classifier.classify(extract_features(getFeatureVector(processedTweet))) + "\n")
-        print("TextBlob Positive Sentiment Value:" + " " + str(blob.sentiment.p_pos) + "\n")
-        print("TextBlob Negative Sentiment Value:" + " " + str(blob.sentiment.p_neg))
+    intialTweet = str(sys.arg[2])      
+    processedTweet = preProcessing(initialTweet)
+    blob = textblob.TextBlob(initialTweet, analyzer=textblob.sentiments.NaiveBayesAnalyzer())
+    print("Tweet:" + " " + initialTweet + "\n")
+    print("Model Sentiment Value:" + " " + classifier.classify(extract_features(getFeatureVector(processedTweet))) + "\n")
+    print("TextBlob Positive Sentiment Value:" + " " + str(blob.sentiment.p_pos) + "\n")
+    print("TextBlob Negative Sentiment Value:" + " " + str(blob.sentiment.p_neg))
 
 
 

@@ -3,6 +3,7 @@ import textblob
 import csv
 import nltk
 import pandas as pd
+import sys
 
 import re
 #Process tweet for uniformity in sentiment analysis

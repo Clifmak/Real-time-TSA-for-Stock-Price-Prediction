@@ -52,20 +52,20 @@ print(featureVector0)
 
 
 #Adapted from NLTK Twitter Data Sentiment Analysis
-tweetFrame = csv.reader(open('data4.csv', 'r'), delimiter=',')
+tweetFrame = csv.reader(open('data4.csv', 'r'))
 
 featureList =[]
 tweets = []
 for row in tweetFrame :
-    tweety = row[3]
-    sentiment = row[1]
+    tweety = row[1]
+    sentiment = row[0]
     processedTweet = preProcessing(tweety)
     featureVector1 = getFeatureVector(processedTweet)
     featureList.extend(featureVector1)
     tweets.append((featureVector1, sentiment))
     featureList = list(set(featureList))
     training_set = nltk.classify.util.apply_features(extract_features, tweets)
-    print(row[3] + " " + row[1] + "\n")
+    print(row[0] + " " + row[1] + "\n")
     classifier = nltk.NaiveBayesClassifier.train(training_set)
 
 

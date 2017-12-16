@@ -75,7 +75,7 @@ classifier = nltk.NaiveBayesClassifier.train(training_set)
 #initialTweet = "Bitcoin is going to make me filthy rich. I am so happy"
 
 
-initialTweet = "I think GE has found a bottom." 
+initialTweet = "When analysts and pundits are saying I don't see $GE outperforming in 2018, It means the selling climax is almost over and the bottom is near. Consider accumulating at this level if you have a strong stomach to handle negativity in $GE."
 processedTweet = preProcessing(initialTweet)
 blob = textblob.TextBlob(initialTweet, analyzer=textblob.sentiments.NaiveBayesAnalyzer())
 print(blob.sentiment.p_pos, blob.sentiment.p_neg)

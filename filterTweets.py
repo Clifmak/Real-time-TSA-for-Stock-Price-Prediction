@@ -47,8 +47,8 @@ def extract_features(tweet):
 tweet = "@JimChanos What Elon Musk did was simple: He made EVs sexy.Prior to that you had to compromise and get something like a Prius. But now he has the entire auto world that has figured that out and is coming up with aspirational cars. He’s fighting a different fight."
 print(tweet + "\n" )
 tweet = preProcessing(tweet)
-featureVector = getFeatureVector(tweet)
-print(featureVector)
+featureVector0 = getFeatureVector(tweet)
+print(featureVector0)
 
 
 #Adapted from NLTK Twitter Data Sentiment Analysis
@@ -57,12 +57,12 @@ tweetFrame = csv.reader(open('data13.csv', 'r'), delimiter=',')
 featureList =[]
 tweets = []
 for row in tweetFrame :
-    tweet = row[3]
+    tweety = row[3]
     sentiment = row[1]
-    processedTweet = preProcessing(tweet)
-    featureVector = getFeatureVector(processedTweet)
-    featureList.extend(featureVector)
-    tweets.append((featureVector, sentiment))
+    processedTweet = preProcessing(tweety)
+    featureVector1 = getFeatureVector(processedTweet)
+    featureList.extend(featureVector1)
+    tweets.append((featureVector1, sentiment))
     featureList = list(set(featureList))
     training_set = nltk.classify.util.apply_features(extract_features, tweets)
 

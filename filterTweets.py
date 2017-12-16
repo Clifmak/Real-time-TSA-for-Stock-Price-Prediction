@@ -44,11 +44,11 @@ def extract_features(tweet):
         features['contains(%s)' % word] = (word in tweet_words)
     return features
 
-tweet = "@JimChanos What Elon Musk did was simple: He made EVs sexy.Prior to that you had to compromise and get something like a Prius. But now he has the entire auto world that has figured that out and is coming up with aspirational cars. He’s fighting a different fight."
-print(tweet + "\n" )
-tweet = preProcessing(tweet)
-featureVector0 = getFeatureVector(tweet)
-print(featureVector0)
+#tweet = "@JimChanos What Elon Musk did was simple: He made EVs sexy.Prior to that you had to compromise and get something like a Prius. But now he has the entire auto world that has figured that out and is coming up with aspirational cars. He’s fighting a different fight."
+#print(tweet + "\n" )
+#tweet = preProcessing(tweet)
+#featureVector0 = getFeatureVector(tweet)
+#print(featureVector0)
 
 
 #Adapted from NLTK Twitter Data Sentiment Analysis

@@ -52,7 +52,7 @@ print(featureVector0)
 
 
 #Adapted from NLTK Twitter Data Sentiment Analysis
-tweetFrame = csv.reader(open('data4.csv', 'r'))
+tweetFrame = csv.reader(open('data4.csv', 'r'), quotechar='|')
 
 featureList =[]
 tweets = []

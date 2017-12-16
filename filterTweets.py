@@ -82,33 +82,41 @@ def extract_features(tweet):
 
 #print(classifier.classify(extract_features(getFeatureVector(processedTweet))))
 
+#Build Sentiment Model, and Compare it to an off the shelf classifier
 if __name__ == '__main__':
+    #Fetch Training Dataset
     tweetFrame = csv.reader(open('data4.csv', 'r'), quotechar='|', delimiter = '\t')
 
-    featureList =[]
-    tweets = []
-    i = 0
+    featureList =[]        #Feature Set
+    tweets = []            #Tweets
+    #for every row in dataset
     for row in tweetFrame :
-        tweety = row[2]
-        sentiment = row[1]
-        processedTweet = preProcessing(tweety)
-        featureVector1 = getFeatureVector(processedTweet)
-        featureList.extend(featureVector1)
-        tweets.append((featureVector1, sentiment))
-        featureList = list(set(featureList))
-        training_set = nltk.classify.util.apply_features(extract_features, tweets)
-        #print(row[1] + " " + row[2] + "\n")
+        tweety = row[2]                                    #Get tweet
+        sentiment = row[1]                                 #Get Sentiment
+        processedTweet = preProcessing(tweety)             #Preprocess tweet text
+        featureVector1 = getFeatureVector(processedTweet)  #Get FeatureVector
+        featureList.extend(featureVector1)                 #Expand FeatureList
+        tweets.append((featureVector1, sentiment))         #update tweetList
+        featureList = list(set(featureList))               #Remove Duplicates
+        training_set = nltk.classify.util.apply_features(extract_features, tweets)   #Extract feature vector for all tweets
+        
     
-    classifier = nltk.NaiveBayesClassifier.train(training_set)
-    #initialTweet = "When analysts and pundits are saying I don't see $GE outperforming in 2018, It means the selling climax is almost over and the bottom is near. Consider accumulating at this level if you have a strong stomach to handle negativity in $GE."
-    #initialTweet = "$CSX so far smells like pure buyback action this morn; question is, when bb done, does it go off a cliff as sellers continue?"
-    initialTweet = "$XON #Intrexon Corp INTREXON CORP. sees an upgrade to Slightly Negative thanks to a better star rating, but the title remains unattractive" 
-    processedTweet = preProcessing(initialTweet)
-    blob = textblob.TextBlob(initialTweet, analyzer=textblob.sentiments.NaiveBayesAnalyzer())
-    print("Tweet:" + " " + initialTweet + "\n")
-    print("Model Sentiment Value:" + " " + classifier.classify(extract_features(getFeatureVector(processedTweet))) + "\n")
-    print("TextBlob Positive Sentiment Value:" + " " + str(blob.sentiment.p_pos) + "\n")
-    print("TextBlob Negative Sentiment Value:" + " " + str(blob.sentiment.p_neg))
+    classifier = nltk.NaiveBayesClassifier.train(training_set)  #Train classifier
+    
+    initialTweet1 = "When analysts and pundits are saying I don't see $GE outperforming in 2018, It means the selling climax is almost over and the bottom is near. Consider accumulating at this level if you have a strong stomach to handle negativity in $GE."
+    initialTweet2 = "$CSX so far smells like pure buyback action this morn; question is, when bb done, does it go off a cliff as sellers continue?"
+    initialTwees3 = "$XON #Intrexon Corp INTREXON CORP. sees an upgrade to Slightly Negative thanks to a better star rating, but the title remains unattractive"
+    
+    tweetList = [intialTweet1, initialTweet2, intialTweet3]
+    
+    for initialTweet in TweetList:
+    
+        processedTweet = preProcessing(initialTweet)
+        blob = textblob.TextBlob(initialTweet, analyzer=textblob.sentiments.NaiveBayesAnalyzer())
+        print("Tweet:" + " " + initialTweet + "\n")
+        print("Model Sentiment Value:" + " " + classifier.classify(extract_features(getFeatureVector(processedTweet))) + "\n")
+        print("TextBlob Positive Sentiment Value:" + " " + str(blob.sentiment.p_pos) + "\n")
+        print("TextBlob Negative Sentiment Value:" + " " + str(blob.sentiment.p_neg))
 
 
 

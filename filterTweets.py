@@ -57,21 +57,21 @@ tweetFrame = csv.reader(open('data13.csv', 'r'), delimiter=',')
 featureList =[]
 tweets = []
 for row in tweetFrame :
-    tweety = row[3]
-    sentiment = row[1]
+    tweety = row[1]
+    sentiment = row[0]
     processedTweet = preProcessing(tweety)
     featureVector1 = getFeatureVector(processedTweet)
     featureList.extend(featureVector1)
     tweets.append((featureVector1, sentiment))
     featureList = list(set(featureList))
     training_set = nltk.classify.util.apply_features(extract_features, tweets)
-    print(row[1] + " " + row[3])
+    print(row[0] + " " + row[1] + "\n")
     classifier = nltk.NaiveBayesClassifier.train(training_set)
 
 
 initialTweet = "Bitcoin is going to make me filthy rich. I am so happy"
 processedTweet = preProcessing(initialTweet)
-#print(classifier.classify(extract_features(getFeatureVector(processedTweet))))
+print(classifier.classify(extract_features(getFeatureVector(processedTweet))))
 
 
 

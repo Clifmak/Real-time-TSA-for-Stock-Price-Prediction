@@ -66,7 +66,7 @@ for row in tweetFrame :
     tweets.append((featureVector1, sentiment))
     featureList = list(set(featureList))
     training_set = nltk.classify.util.apply_features(extract_features, tweets)
-    print(row[0] + " " + row[1] + "\n")
+    print(row[1] + " " + row[2] + "\n")
     classifier = nltk.NaiveBayesClassifier.train(training_set)
     
 

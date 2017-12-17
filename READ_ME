@@ -10,7 +10,7 @@ The program relies on two inputs :
           
   where <tweet text> is a tweet about any financial company.
   
-  The program will return the tweet, a sentiment of our model, where 0 means negative sentiment and 1 means a postive sentiment, 
+  The program will return the tweet sentiment, a sentiment of our model, where 0 means negative sentiment and 1 means a postive sentiment, 
                    sentiment from textBlob an off-the-shelf sentiment analysis model.
   For the TextBlob Sentiment Analysis, the one with the higher sentiment represents the sentiment for the tweet.
                   
